@@ -10,6 +10,12 @@ php开发环境镜像
 
 ## 安装
 
+> 拉取代码
+
+~~~
+git clone https://github.com/luler/php_fpm_base.git
+~~~
+
 > 安装前，机器必须安装docker、和docker-compose环境
 
 ~~~
