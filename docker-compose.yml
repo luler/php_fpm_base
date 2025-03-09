@@ -1,0 +1,18 @@
+services:
+  php_nginx:
+    #image: php7.3
+    build:
+      context: .
+    ports:
+      - 9001:9001
+      - 8080:80
+    privileged: true
+    volumes:
+      - ./config/supervisor/supervisor.d:/etc/supervisor.d
+      - ./config/supervisor/supervisord.conf:/etc/supervisord.conf
+      - ./config/nginx/http.d:/etc/nginx/http.d
+      - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./config/php-fpm/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ./code:/var/www/html/code
+      - ./runtime/log/nginx:/var/log/nginx
+    restart: always
